@@ -4,12 +4,13 @@
     "description": "multiplayer game battleship",
     "main": "build/index.js",
     "scripts": {
-        "start:tscServer": "tsc -w",
-        "start:tscScripts": "cd public/scripts/src && tsc -w",
-        "start:dev": "nodemon build/index.js",
-        "start": "concurrently npm:start:*",
-        "build": "tsc -p tsconfig.json && cd public/scripts && tsc -p tsconfig.json",
-        "server": "node build/index.js"
+        "dev:tscScripts": "tsc -watch -p tsconfig.server.json",
+        "dev:tscWebpack": "webpack --watch",
+        "dev:server": "nodemon",
+        "dev:grunt": "./node_modules/.bin/grunt watch",
+        "dev": "concurrently npm:dev:*",
+        "build": "webpack && tsc -p tsconfig.server.json",
+        "start": "node build/index.js"
     },
     "author": "LPF",
     "license": "ISC",
@@ -31,6 +32,19 @@
     },
     "devDependencies": {
         "concurrently": "^5.3.0",
-        "nodemon": "^2.0.6"
+        "grunt": "^1.3.0",
+        "grunt-autoprefixer": "^3.0.4",
+        "grunt-cli": "^1.3.2",
+        "grunt-contrib-watch": "^1.1.0",
+        "nodemon": "^2.0.6",
+        "ts-loader": "^8.0.6",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.3",
+        "webpack": "^5.2.0",
+        "webpack-cli": "^4.1.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LPF33/Loomactica.git"
     }
 }

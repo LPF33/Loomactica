@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.json",
+    "exclude": ["scripts"],
+    "compilerOptions": {
+        "sourceMap": false,
+        "outDir": "./build" /* Redirect output structure to the directory. */,
+        "rootDir": "./backend" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    }
+}

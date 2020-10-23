@@ -1,10 +1,7 @@
+import { TPlayer } from "./types";
+
 const room: string = window.location.pathname.replace(/\/play\//, "");
 const socket: SocketIOClient.Socket = io({ query: { room: room } });
-
-interface TPlayer {
-    spaceship: number;
-    name: string;
-}
 
 const player: TPlayer = {
     spaceship: 0,

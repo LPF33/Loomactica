@@ -51,10 +51,14 @@ body {
 .error {
   width: 100%;
   height: 100%;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 
 .error p {
@@ -166,10 +170,14 @@ main#index .spaceship-text {
   width: 100%;
   text-align: center;
   padding: 10px;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   animation: spaceship 1.5s ease-in 1 forwards;
 }
 
@@ -235,10 +243,14 @@ main#index .spaceship-text .link.wobble {
   height: 100%;
   position: absolute;
   overflow: hidden;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 
 #start > h1 {
@@ -256,11 +268,16 @@ main#index .spaceship-text .link.wobble {
 }
 
 #start > div {
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100%;
   max-width: 600px;
   height: 75vh;
@@ -280,7 +297,8 @@ main#index .spaceship-text .link.wobble {
 #start > div > figure img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 #start > div > figure > span {
@@ -408,4 +426,5 @@ main#index .spaceship-text .link.wobble {
   position: absolute;
   overflow: hidden;
   display: none;
+  color: yellow;
 }

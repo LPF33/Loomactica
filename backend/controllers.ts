@@ -31,7 +31,7 @@ const getMain = async (req: Request, res: Response) => {
 
 const playGame = async (req: Request, res: Response) => {
     const { id } = req.params;
-    res.render("game", { tabTitle: "Welcome" });
+    res.render("game", { tabTitle: "Play LOOMACTICA" });
 };
 
 const unknownRoutes = async (req: Request, res: Response) => {

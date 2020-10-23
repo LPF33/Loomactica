@@ -1,9 +1,0 @@
--- CREATE DATABASE loomactica;
--- USE loomactica;
--- CREATE TABLE sockets (
--- 	id int NOT NULL auto_increment,
---     name varchar(250) NOT NULL,
---     spaceship int NOT NULL,
---     room varchar(250),
---     primary key(id)    
--- )

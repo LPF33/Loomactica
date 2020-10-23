@@ -3,10 +3,10 @@
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
+        "lib": ["ES2017", "DOM"],
         "strict": true,
-        "esModuleInterop": true,
-        "outDir": "./build",
-        "rootDir": "./src"
+        "sourceMap": true,
+        "esModuleInterop": true
     },
-    "exclude": ["node_modules", "./public"]
+    "exclude": ["node_modules"]
 }
