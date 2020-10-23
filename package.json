@@ -4,12 +4,12 @@
     "description": "multiplayer game battleship",
     "main": "build/index.js",
     "scripts": {
-        "dev:tscScripts": "tsc -watch -p tsconfig.server.json",
+        "dev:tscScripts": "tsc -watch -p tsconfig.backend.json",
         "dev:tscWebpack": "webpack --watch",
         "dev:server": "nodemon",
         "dev:grunt": "./node_modules/.bin/grunt watch",
         "dev": "concurrently npm:dev:*",
-        "build": "webpack && tsc -p tsconfig.server.json",
+        "build": "webpack && tsc -p tsconfig.backend.json",
         "start": "node build/index.js"
     },
     "author": "LPF",
