@@ -1,0 +1,162 @@
+#start {
+    background-color: #050801;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    @include flex(column);
+
+    > h1 {
+        margin-bottom: 10px;
+        color: #03e9f4;
+        filter: hue-rotate(70deg);
+        text-align: center;
+        font-size: 1.2rem;
+        @media (min-width: 768px) and (min-height: 333px) {
+            font-size: 2rem;
+        }
+    }
+
+    > div {
+        @include flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 600px;
+        height: 75vh;
+        max-height: 600px;
+
+        > figure {
+            position: relative;
+            width: 33%;
+            max-width: 200px;
+            height: 25vh;
+            max-height: 200px;
+            overflow: hidden;
+            padding: 2px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            > span {
+                position: absolute;
+                display: block;
+            }
+
+            &:hover {
+                > span:nth-child(2) {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(90deg, transparent, #03e9f4);
+                    animation: animate1 2s linear infinite;
+                }
+
+                @keyframes animate1 {
+                    0% {
+                        left: -100%;
+                    }
+                    50%,
+                    100% {
+                        left: 100%;
+                    }
+                }
+
+                > span:nth-child(3) {
+                    top: -100%;
+                    right: 0;
+                    width: 2px;
+                    height: 100%;
+                    background: linear-gradient(180deg, transparent, #03e9f4);
+                    animation: animate2 2s 0.5s linear infinite;
+                }
+
+                @keyframes animate2 {
+                    0% {
+                        top: -100%;
+                    }
+                    50%,
+                    100% {
+                        top: 100%;
+                    }
+                }
+
+                > span:nth-child(4) {
+                    bottom: 0;
+                    right: -100%;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(270deg, transparent, #03e9f4);
+                    animation: animate3 2s 1s linear infinite;
+                }
+
+                @keyframes animate3 {
+                    0% {
+                        right: -100%;
+                    }
+                    50%,
+                    100% {
+                        right: 100%;
+                    }
+                }
+
+                > span:nth-child(5) {
+                    bottom: -100%;
+                    left: 0;
+                    width: 2px;
+                    height: 100%;
+                    background: linear-gradient(360deg, transparent, #03e9f4);
+                    animation: animate4 2s 1.5s linear infinite;
+                }
+
+                @keyframes animate4 {
+                    0% {
+                        bottom: -100%;
+                    }
+                    50%,
+                    100% {
+                        bottom: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    > section {
+        > input {
+            background-color: #03e9f4;
+            color: #050801;
+            box-shadow: 0 0 5px #03e9f4, 0 0 15px #03e9f4, 0 0 25px #03e9f4;
+            filter: hue-rotate(270deg);
+            padding: 10px;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 10px;
+
+            @media (min-width: 768px) and (min-height: 333px) {
+                font-size: 1.5rem;
+            }
+        }
+
+        #go {
+            display: none;
+            background-color: #03e9f4;
+            color: #050801;
+            box-shadow: 0 0 5px #03e9f4, 0 0 15px #03e9f4, 0 0 25px #03e9f4;
+            filter: hue-rotate(200deg);
+            padding: 10px;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 10px;
+
+            @media (min-width: 768px) and (min-height: 333px) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

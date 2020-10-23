@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Fredericka the Great", cursive;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: transparent;
+  border-width: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.error {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error p {
+  font-size: 3rem;
+  color: red;
+  text-align: center;
+}
+
+.error h1 {
+  text-align: center;
+}
+
+.error h3 {
+  margin-top: 10px;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  width: 90%;
+}
+
+.error a {
+  margin-top: 20px;
+  border: 1px solid grey;
+  padding: 10px;
+  color: black;
+  text-align: center;
+}
+
+.error a:hover {
+  background-color: #ffffd5;
+}
+
+main#index {
+  background-color: #050801;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+main#index h1 {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  margin: 10px;
+}
+
+main#index h1:first-child {
+  color: #03e9f4;
+}
+
+main#index h1:first-child:hover {
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+}
+
+main#index h1:first-child:hover + h1 {
+  background-color: #03e8f43a;
+  color: #050801;
+  box-shadow: 0 0 5px #03e8f43a, 0 0 25px #03e8f43a, 0 0 50px #03e8f43a, 0 0 200px #03e8f43a;
+}
+
+main#index h1:first-child > span {
+  position: absolute;
+  display: block;
+}
+
+main#index h1:first-child > span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 8s 4s linear infinite;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+main#index h1:nth-child(2) {
+  color: #03e8f43a;
+  transform: scaleY(-1);
+}
+
+main#index > a {
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
+  filter: hue-rotate(210deg);
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 5vh 0;
+  padding: 10px;
+  display: block;
+}
+
+main#index .spaceship-text {
+  position: relative;
+  top: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: spaceship 1.5s ease-in 1 forwards;
+}
+
+main#index .spaceship-text .link {
+  width: 100%;
+}
+
+main#index .spaceship-text .link > p,
+main#index .spaceship-text .link > textarea {
+  color: #03e9f4;
+  filter: hue-rotate(270deg);
+  word-break: break-all;
+  background-color: transparent;
+  font-size: 1.3rem;
+  text-align: center;
+  width: 100%;
+}
+
+main#index .spaceship-text .link > textarea {
+  cursor: pointer;
+}
+
+main#index .spaceship-text .link > textarea:hover {
+  filter: hue-rotate(10deg);
+}
+
+main#index .spaceship-text .link.fall {
+  transform: rotateZ(0deg);
+}
+
+main#index .spaceship-text .link.wobble {
+  transform: rotateZ(15deg);
+  animation: wooble 4s infinite alternate-reverse;
+}
+
+@keyframes wooble {
+  0% {
+    transform: rotateZ(15deg);
+  }
+  100% {
+    transform: rotateZ(-15deg);
+  }
+}
+
+@keyframes spaceship {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main h1 {
+    font-size: 2.5rem;
+  }
+}
+
+#start {
+  background-color: #050801;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#start > h1 {
+  margin-bottom: 10px;
+  color: #03e9f4;
+  filter: hue-rotate(70deg);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+@media (min-width: 768px) and (min-height: 333px) {
+  #start > h1 {
+    font-size: 2rem;
+  }
+}
+
+#start > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 600px;
+  height: 75vh;
+  max-height: 600px;
+}
+
+#start > div > figure {
+  position: relative;
+  width: 33%;
+  max-width: 200px;
+  height: 25vh;
+  max-height: 200px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+#start > div > figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#start > div > figure > span {
+  position: absolute;
+  display: block;
+}
+
+#start > div > figure:hover > span:nth-child(2) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+#start > div > figure:hover > span:nth-child(3) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: animate2 2s 0.5s linear infinite;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+#start > div > figure:hover > span:nth-child(4) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: animate3 2s 1s linear infinite;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+#start > div > figure:hover > span:nth-child(5) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: animate4 2s 1.5s linear infinite;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+#start > section > input {
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 15px #03e9f4, 0 0 25px #03e9f4;
+  filter: hue-rotate(270deg);
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) and (min-height: 333px) {
+  #start > section > input {
+    font-size: 1.5rem;
+  }
+}
+
+#start > section #go {
+  display: none;
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 15px #03e9f4, 0 0 25px #03e9f4;
+  filter: hue-rotate(200deg);
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) and (min-height: 333px) {
+  #start > section #go {
+    font-size: 1.5rem;
+  }
+}
+
+#game {
+  background-color: #050801;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  display: none;
+}
