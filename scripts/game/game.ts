@@ -6,6 +6,7 @@ const socket: SocketIOClient.Socket = io({ query: { room: room } });
 const player: TPlayer = {
     spaceship: 0,
     name: "player",
+    player: 0,
 };
 
 const allStartImg = document.querySelectorAll("#start img") as NodeListOf<
@@ -26,4 +27,8 @@ Array.prototype.forEach.call(
 
 inputName.addEventListener("input", (e: Event) => {
     player.name = (e.currentTarget as HTMLInputElement).value;
+});
+
+socket.on("player-number", (id: number) => {
+    player.player = id;
 });

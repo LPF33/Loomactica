@@ -118,73 +118,135 @@ main#index {
         transform: scaleY(-1);
     }
 
-    > a {
-        background-color: #03e9f4;
-        color: #050801;
-        box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
-        filter: hue-rotate(210deg);
-        text-align: center;
-        font-size: 1.5rem;
-        margin: 5vh 0;
-        padding: 10px;
-        display: block;
+    > aside {
+        width: 0;
+        height: 0;
     }
 
-    .spaceship-text {
+    #hexagons {
+        width: 100%;
         position: relative;
-        top: 100%;
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-rows: auto;
+
+        > div,
+        > a {
+            position: relative;
+            width: 100px;
+            height: 115px;
+            transform: rotate(-60deg) skewY(30deg);
+            background: #0f0f0f;
+            overflow: hidden;
+            visibility: hidden;
+            margin: 5px 5px;
+
+            @for $i from 0 through 10 {
+                &.row#{$i} {
+                    transform: rotate(-60deg)
+                        skewY(30deg)
+                        translate($i * 50px, $i * 5px);
+                }
+            }
+
+            .hexagon {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #0f0f0f;
+                transform: skewY(-30deg) rotate(60deg);
+                overflow: hidden;
+                color: white;
+
+                &.blinkClass {
+                    animation: blink 2s linear 1;
+                }
+
+                @keyframes blink {
+                    0% {
+                        background-color: #0f0f0f;
+                    }
+
+                    30% {
+                        background-color: #03e8f448;
+                    }
+                    100% {
+                        background-color: #0f0f0f;
+                    }
+                }
+            }
+        }
+
+        > div *,
+        > a * {
+            visibility: visible;
+        }
+
+        #play-link {
+            grid-area: 2/1/3/2;
+            @media screen and (max-height: 420px) {
+                grid-area: 1/2/2/3;
+            }
+
+            > span {
+                background-color: #03e9f4;
+                color: #050801;
+                filter: hue-rotate(330deg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    #main-spaceship {
+        position: absolute;
+        top: 20vh;
+        left: -100px;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        transform: rotate(90deg);
+        animation: spaceship 6s linear infinite forwards;
+
+        @keyframes spaceship {
+            100% {
+                left: calc(100vw + 100px);
+            }
+        }
+    }
+
+    .text {
+        position: fixed;
+        bottom: 0;
         width: 100%;
         text-align: center;
         padding: 10px;
         @include flex(column);
 
-        .link {
+        > p,
+        > textarea {
+            color: #03e9f4;
+            filter: hue-rotate(330deg);
+            word-break: break-word;
+            background-color: transparent;
+            font-size: 1.3rem;
+            text-align: center;
             width: 100%;
-            > p,
-            > textarea {
-                color: #03e9f4;
-                filter: hue-rotate(270deg);
-                word-break: break-all;
-                background-color: transparent;
-                font-size: 1.3rem;
-                text-align: center;
-                width: 100%;
-            }
+            outline: none;
 
-            > textarea {
-                cursor: pointer;
-                &:hover {
-                    filter: hue-rotate(10deg);
-                }
-            }
-
-            &.fall {
-                transform: rotateZ(0deg);
-            }
-
-            &.wobble {
-                transform: rotateZ(15deg);
-                animation: wooble 4s infinite alternate-reverse;
-            }
-
-            @keyframes wooble {
-                0% {
-                    transform: rotateZ(15deg);
-                }
-                100% {
-                    transform: rotateZ(-15deg);
-                }
+            @media screen and (max-height: 420px) {
+                font-size: 1rem;
             }
         }
 
-        animation: spaceship 1.5s ease-in 1 forwards;
-
-        @keyframes spaceship {
-            0% {
-                top: 100%;
-            }
-            100% {
-                top: 0;
+        > textarea {
+            cursor: pointer;
+            resize: none;
+            &:hover {
+                filter: hue-rotate(10deg);
             }
         }
     }

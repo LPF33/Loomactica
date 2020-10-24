@@ -152,21 +152,164 @@ main#index h1:nth-child(2) {
   transform: scaleY(-1);
 }
 
-main#index > a {
-  background-color: #03e9f4;
-  color: #050801;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
-  filter: hue-rotate(210deg);
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 5vh 0;
-  padding: 10px;
-  display: block;
+main#index > aside {
+  width: 0;
+  height: 0;
 }
 
-main#index .spaceship-text {
+main#index #hexagons {
+  width: 100%;
   position: relative;
-  top: 100%;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: auto;
+}
+
+main#index #hexagons > div,
+main#index #hexagons > a {
+  position: relative;
+  width: 100px;
+  height: 115px;
+  transform: rotate(-60deg) skewY(30deg);
+  background: #0f0f0f;
+  overflow: hidden;
+  visibility: hidden;
+  margin: 5px 5px;
+}
+
+main#index #hexagons > div.row0,
+main#index #hexagons > a.row0 {
+  transform: rotate(-60deg) skewY(30deg) translate(0px, 0px);
+}
+
+main#index #hexagons > div.row1,
+main#index #hexagons > a.row1 {
+  transform: rotate(-60deg) skewY(30deg) translate(50px, 5px);
+}
+
+main#index #hexagons > div.row2,
+main#index #hexagons > a.row2 {
+  transform: rotate(-60deg) skewY(30deg) translate(100px, 10px);
+}
+
+main#index #hexagons > div.row3,
+main#index #hexagons > a.row3 {
+  transform: rotate(-60deg) skewY(30deg) translate(150px, 15px);
+}
+
+main#index #hexagons > div.row4,
+main#index #hexagons > a.row4 {
+  transform: rotate(-60deg) skewY(30deg) translate(200px, 20px);
+}
+
+main#index #hexagons > div.row5,
+main#index #hexagons > a.row5 {
+  transform: rotate(-60deg) skewY(30deg) translate(250px, 25px);
+}
+
+main#index #hexagons > div.row6,
+main#index #hexagons > a.row6 {
+  transform: rotate(-60deg) skewY(30deg) translate(300px, 30px);
+}
+
+main#index #hexagons > div.row7,
+main#index #hexagons > a.row7 {
+  transform: rotate(-60deg) skewY(30deg) translate(350px, 35px);
+}
+
+main#index #hexagons > div.row8,
+main#index #hexagons > a.row8 {
+  transform: rotate(-60deg) skewY(30deg) translate(400px, 40px);
+}
+
+main#index #hexagons > div.row9,
+main#index #hexagons > a.row9 {
+  transform: rotate(-60deg) skewY(30deg) translate(450px, 45px);
+}
+
+main#index #hexagons > div.row10,
+main#index #hexagons > a.row10 {
+  transform: rotate(-60deg) skewY(30deg) translate(500px, 50px);
+}
+
+main#index #hexagons > div .hexagon,
+main#index #hexagons > a .hexagon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f0f0f;
+  transform: skewY(-30deg) rotate(60deg);
+  overflow: hidden;
+  color: white;
+}
+
+main#index #hexagons > div .hexagon.blinkClass,
+main#index #hexagons > a .hexagon.blinkClass {
+  animation: blink 2s linear 1;
+}
+
+@keyframes blink {
+  0% {
+    background-color: #0f0f0f;
+  }
+  30% {
+    background-color: #03e8f448;
+  }
+  100% {
+    background-color: #0f0f0f;
+  }
+}
+
+main#index #hexagons > div *,
+main#index #hexagons > a * {
+  visibility: visible;
+}
+
+main#index #hexagons #play-link {
+  grid-area: 2/1/3/2;
+}
+
+@media screen and (max-height: 420px) {
+  main#index #hexagons #play-link {
+    grid-area: 1/2/2/3;
+  }
+}
+
+main#index #hexagons #play-link > span {
+  background-color: #03e9f4;
+  color: #050801;
+  filter: hue-rotate(330deg);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+main#index #main-spaceship {
+  position: absolute;
+  top: 20vh;
+  left: -100px;
+  width: 100px;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transform: rotate(90deg);
+  animation: spaceship 6s linear infinite forwards;
+}
+
+@keyframes spaceship {
+  100% {
+    left: calc(100vw + 100px);
+  }
+}
+
+main#index .text {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   text-align: center;
   padding: 10px;
@@ -178,57 +321,34 @@ main#index .spaceship-text {
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center;
-  animation: spaceship 1.5s ease-in 1 forwards;
 }
 
-main#index .spaceship-text .link {
-  width: 100%;
-}
-
-main#index .spaceship-text .link > p,
-main#index .spaceship-text .link > textarea {
+main#index .text > p,
+main#index .text > textarea {
   color: #03e9f4;
-  filter: hue-rotate(270deg);
-  word-break: break-all;
+  filter: hue-rotate(330deg);
+  word-break: break-word;
   background-color: transparent;
   font-size: 1.3rem;
   text-align: center;
   width: 100%;
+  outline: none;
 }
 
-main#index .spaceship-text .link > textarea {
+@media screen and (max-height: 420px) {
+  main#index .text > p,
+  main#index .text > textarea {
+    font-size: 1rem;
+  }
+}
+
+main#index .text > textarea {
   cursor: pointer;
+  resize: none;
 }
 
-main#index .spaceship-text .link > textarea:hover {
+main#index .text > textarea:hover {
   filter: hue-rotate(10deg);
-}
-
-main#index .spaceship-text .link.fall {
-  transform: rotateZ(0deg);
-}
-
-main#index .spaceship-text .link.wobble {
-  transform: rotateZ(15deg);
-  animation: wooble 4s infinite alternate-reverse;
-}
-
-@keyframes wooble {
-  0% {
-    transform: rotateZ(15deg);
-  }
-  100% {
-    transform: rotateZ(-15deg);
-  }
-}
-
-@keyframes spaceship {
-  0% {
-    top: 100%;
-  }
-  100% {
-    top: 0;
-  }
 }
 
 @media screen and (min-width: 768px) {
