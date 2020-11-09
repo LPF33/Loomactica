@@ -4,9 +4,9 @@ const room: string = window.location.pathname.replace(/\/play\//, "");
 const socket: SocketIOClient.Socket = io({ query: { room: room } });
 
 const player: TPlayer = {
-    spaceship: 0,
+    spaceship: 1,
     name: "player",
-    player: 0,
+    player: null,
 };
 
 const allStartImg = document.querySelectorAll("#start img") as NodeListOf<
@@ -15,20 +15,20 @@ const allStartImg = document.querySelectorAll("#start img") as NodeListOf<
 const goButton = document.querySelector("#go") as HTMLButtonElement;
 const inputName = document.querySelector("#name") as HTMLInputElement;
 
-Array.prototype.forEach.call(
-    allStartImg,
-    (element: HTMLImageElement, index) => {
-        element.addEventListener("click", () => {
-            player.spaceship = index + 1;
-            goButton.style.display = "inline";
-        });
-    }
-);
+allStartImg.forEach((element, index) => {
+    element.addEventListener("click", () => {
+        player.spaceship = (index + 1) as 1 | 2 | 3 | 4 | 5 | 6;
+        goButton.style.display = "inline";
+    });
+});
 
 inputName.addEventListener("input", (e: Event) => {
     player.name = (e.currentTarget as HTMLInputElement).value;
 });
 
 socket.on("player-number", (id: number) => {
-    player.player = id;
+    player.player = id as 1 | 2;
+    if (player.name === "player") {
+        player.name = `player${id}`;
+    }
 });

@@ -1,5 +1,5 @@
 export interface TPlayer {
-    spaceship: number;
+    spaceship: 1 | 2 | 3 | 4 | 5 | 6;
     name: string;
-    player: number;
+    player: null | 1 | 2;
 }
